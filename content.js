@@ -10,11 +10,11 @@ $(document).ready(function() {
     obj[key] = saved;
 
     var self = $(this);
-    if ($(this).is(":checked")) {
+    if (self.is(":checked")) {
       chrome.storage.sync.set(obj, function(foo) {
         //console.log('Value is set to ' + saved + " for key "+key);
-        console.log(JSON.stringify(foo));
         self.parents(".vsr").addClass("done");
+        self.parent().addClass("done");
       });
     } else {
       console.log("uncheck");
@@ -60,6 +60,7 @@ var addCheckbox = function(pid,t) {
           console.log('Value currently is ' + result["p"+pid]);
           checkbox.attr("checked","checked");
           t.parents(".vsr").addClass("done");
+          t.parent().addClass("done");
         }
       });
     }
