@@ -1,0 +1,12 @@
+{
+    "name": "Bleau problem ticklist extension",
+    "version": "1.0",
+    "description": "Easily keep track which problems you have climbed",
+     "permissions": ["storage"],
+     "content_scripts": [{
+       "css": ["styles.css"],
+       "js": ["lib/jquery/jquery-3.4.1.min.js","content.js"],
+       "matches": ["https://bleau.info/*"]
+     }],
+    "manifest_version": 2
+  }
