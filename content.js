@@ -1,5 +1,10 @@
 // Add checkbox and class to all of the links which look like routes...
 $(document).ready(function() {
+
+  /**
+   * Handler for the checkboxes. Saves tick to chrome storage and adds 
+   * a class so it can be visually detected.
+   */
   $(document).on("click",".ticked",function() {
 
     var pid =$(this).data("pid");
@@ -26,6 +31,12 @@ $(document).ready(function() {
     }
   });
 
+  var total = $(".vsr").length;
+  var done = $(".done").length;
+  var per = Math.round((done/total) * 100 * 100)/100;
+  if (total > 0) {
+    $("h3").append("<h2>"+per+"% "+done+"  out of "+total + " problem(s) done</h2>");
+  }
 
 
   // Go through a problem page and add markers if the problem is already ticked

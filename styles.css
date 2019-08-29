@@ -2,8 +2,11 @@ main {
   background-color : #afc5db !important;
 }
 
+
 .done {
-  color : #3baa03;
+  color : white !important;
+  background-color : #187503;
+  
 
   text-decoration : line-through;
   text-decoration-color : red;
