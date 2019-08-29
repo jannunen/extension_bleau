@@ -31,12 +31,25 @@ $(document).ready(function() {
     }
   });
 
+  // Draw totals to a sector page
   var total = $(".vsr").length;
   var done = $(".done").length;
   var per = Math.round((done/total) * 100 * 100)/100;
   if (total > 0) {
     $("h3").append("<h2>"+per+"% "+done+"  out of "+total + " problem(s) done</h2>");
   }
+
+  // Go through a topo page (Rocher Saint Germain topo is one of those kinds)
+  // https://bleau.info/topos/topo111.html
+  //
+$(".lvar").find("a").each(function() {
+  var t= $(this);
+  var m = t.attr("href").match(/(\d+).html/);
+  if (m.length > 1) {
+    var pid = m[1];
+    addCheckbox(pid,t);
+  }
+});
 
 
   // Go through a problem page and add markers if the problem is already ticked
